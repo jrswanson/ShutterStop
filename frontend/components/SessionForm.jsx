@@ -15,6 +15,10 @@ class SessionForm extends React.Component {
         this.handlePassword = this.handlePassword.bind(this);
     }
 
+    componentDidMount() {
+        this.props.clearErrors();
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         this.props.processForm(this.state);
@@ -41,7 +45,7 @@ class SessionForm extends React.Component {
     render() {
         return (
             <>
-                <h2>{this.props.name}</h2>
+                <h3>{this.props.name === 'Sign Up' ? 'Join ShutterStop' : 'Login In to ShutterStop'}</h3>
                 <form onSubmit={this.handleSubmit}>
                     Username:
                     <input type="text" value={this.state.username} onChange={this.handleUsername} />
@@ -54,19 +58,26 @@ class SessionForm extends React.Component {
         );
     }
 }
+
 const mstpSignup = state => ({
     name: "Sign Up",
     errors: state.errors.login
 });
+
 const mdtpSignup = dispatch => ({
-    processForm: user => dispatch(signup(user))
+    processForm: user => dispatch(signup(user)),
+    clearErrors: () => dispatch({type: 'NULL'})
 });
+
 const mstpLogin = state => ({
     name: "Login",
     errors: state.errors.login
 });
+
 const mdtpLogin = dispatch => ({
-    processForm: user => dispatch(login(user))
+    processForm: user => dispatch(login(user)),
+    clearErrors: () => dispatch({ type: 'NULL' })
 });
+
 export const LoginForm = connect(mstpLogin, mdtpLogin)(SessionForm);
 export const SignupForm = connect(mstpSignup, mdtpSignup)(SessionForm);
