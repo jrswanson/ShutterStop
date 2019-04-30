@@ -20,7 +20,6 @@ bundle.js.map
 !/storage/.keep
 
 /node_modules
-/tmp
 /yarn-error.log
 
 /public/assets
