@@ -6,9 +6,10 @@ import AuthRoute from '../util/route_util';
 const App = () => (
     <div>
         <Nav/>
-
-        <AuthRoute path='/signup' component={SignupForm} />
-        <AuthRoute path='/login' component={LoginForm} />
+        <main>
+            <AuthRoute path='/signup' component={SignupForm} />
+            <AuthRoute path='/login' component={LoginForm} />
+        </main>
     </div>
 );
 

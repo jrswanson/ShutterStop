@@ -36,7 +36,7 @@ class SessionForm extends React.Component {
 
     renderErrors() {
         if (this.props.errors.length > 0) {
-            return this.props.errors.map(error => <div>{error}</div>);
+            return this.props.errors.map(error => <li>{error}</li>);
         } else {
             return "";
         }
@@ -45,7 +45,7 @@ class SessionForm extends React.Component {
     render() {
         return (
             <div className='session_form'>
-                <h1>{this.props.name === 'Sign Up' ? 'Join ShutterStop' : 'Login In to ShutterStop'}</h1>
+                <h1>{this.props.name === 'Sign up' ? 'Join ShutterStop' : 'Log In to ShutterStop'}</h1>
                 <div id='form_main'>
                     <form onSubmit={this.handleSubmit}>
                         <label htmlFor="Username">Username</label>
@@ -55,14 +55,14 @@ class SessionForm extends React.Component {
                         <input className="submit_button" type="submit" value={this.props.name} />
                     </form>
                 </div>
-                <div className="errors">{this.renderErrors()}</div>
+                <ul className="errors">{this.renderErrors()}</ul>
             </div>
         );
     }
 }
 
 const mstpSignup = state => ({
-    name: "Sign Up",
+    name: "Sign up",
     errors: state.errors.login
 });
 
@@ -72,7 +72,7 @@ const mdtpSignup = dispatch => ({
 });
 
 const mstpLogin = state => ({
-    name: "Login",
+    name: "Log in",
     errors: state.errors.login
 });
 

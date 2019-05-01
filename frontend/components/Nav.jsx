@@ -7,7 +7,7 @@ const Nav = (props) => {
     if (props.user) {
         return (
             <header>
-                <div>ShutterStop 📸</div>
+                <Link className='logo' to='/'>ShutterStop</Link>
                 <div id='leftNav'>
                     <div>Welcome, {props.user.username}</div>
                     <div><button onClick={props.logout}>Logout</button></div>
@@ -17,10 +17,10 @@ const Nav = (props) => {
     } else {
         return (
             <header>
-                <div>ShutterStop 📸</div>
-                <div id='leftNav'>
-                    <div><Link className='loginLink' to='/login'>Login</Link></div>
-                    <div><Link className='signupLink' to='/signup'>Sign Up</Link></div>
+                <Link className='logo' to='/'>ShutterStop</Link>
+                <div className='leftNav'>
+                    <Link id='loginLink' to='/login'>Log in</Link>
+                    <Link id='signupLink' to='/signup'>Sign up</Link>
                 </div>
             </header>
         );
