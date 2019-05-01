@@ -44,15 +44,15 @@ class SessionForm extends React.Component {
 
     render() {
         return (
-            <div className='session_form'>
+            <div className='session-form'>
                 <h1>{this.props.name === 'Sign up' ? 'Join ShutterStop' : 'Log In to ShutterStop'}</h1>
-                <div id='form_main'>
+                <div id='form-main'>
                     <form onSubmit={this.handleSubmit}>
                         <label htmlFor="Username">Username</label>
                         <input id="Username" type="text" value={this.state.username} onChange={this.handleUsername} />
                         <label htmlFor="Username">Password</label>
                         <input id="Password" type="password" value={this.state.password} onChange={this.handlePassword} />
-                        <input className="submit_button" type="submit" value={this.props.name} />
+                        <input className="submit-button" type="submit" value={this.props.name} />
                     </form>
                 </div>
                 <ul className="errors">{this.renderErrors()}</ul>

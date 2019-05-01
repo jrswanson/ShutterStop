@@ -8,6 +8,13 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    <% if logged_in? %>
+      <script type="text/javascript">
+        window.currentUser = <%= render(
+          "api/users/user.json.jbuilder",
+          user: current_user
+        ).html_safe %></script>
+    <% end %>
   </head>
 
   <body>

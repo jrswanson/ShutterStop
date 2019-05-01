@@ -1,0 +1,79 @@
+.session-form {
+    margin: 10px auto;
+    width: 400px;
+    background: #fff;
+    padding: 10px;
+    border: solid #eeeff2 1px;
+    border-radius: 5px;
+    font-weight: 300;
+}
+
+.session-form h1 {
+    font-size: 18pt;
+    padding: 20px;
+    text-align: center;
+    color: rgb(68, 68, 68);
+}
+
+#form-main {
+    margin: 0 auto;
+    width: 300px;
+}
+
+.session-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.session-form form label {
+    margin: 2px 0px;
+    align-self: flex-start;
+    font-size: 11pt;
+    color: rgb(100, 100, 100);
+}
+
+.session-form form input {
+    margin: 2px 0px 10px 0px;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(185,193,199,0.5);
+    transition: border-color .25s;
+    outline: none;
+}
+
+.session-form form input:focus {
+    border-color: #0099e5;
+}
+
+.session-form form .submit-button {
+    margin: 6px 0px 10px 0px;
+    border-style: none;
+    background-color: #34bf49;
+    font-size: 14pt;
+    color: white;
+    font-weight: 300;
+    transition: background-color 0.25s;
+    padding: 8px;
+}
+
+.session-form form .submit-button:hover {
+    background-color: #41cb56;
+    cursor: pointer;
+}
+
+.errors {
+    margin: 6px auto;
+    width: 300px;
+    box-sizing: content-box;
+    list-style: inside;
+    color: rgb(219, 33, 27);
+}
+
+.errors li {
+    margin: 6px 0px;
+}
