@@ -102,8 +102,14 @@ header {
     text-indent: 15px;
 }
 
+#profile-dropdown li a {
+    text-decoration: none;
+    color: black;
+}
+
 .hover-hightlight {
     cursor: pointer;
+    color: black;
 }
 
 .hover-hightlight:hover {

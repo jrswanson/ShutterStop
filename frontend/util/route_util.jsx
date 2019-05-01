@@ -11,8 +11,18 @@ const Auth = ({ component: Component, path, loggedIn }) => (
     />
 );
 
+const Protected = ({ component: Component, path, loggedIn }) => (
+    <Route
+        path={path}
+        render={props => (
+            loggedIn ? <Component {...props} /> : <Redirect to="/signup" />
+        )}
+    />
+);
+
 const mapStateToProps = state => ({
     loggedIn: state.session.id !== null
 });
 
-export default withRouter(connect(mapStateToProps)(Auth));
+export const AuthRoute = withRouter(connect(mapStateToProps)(Auth));
+export const ProtectedRoute = withRouter(connect(mapStateToProps)(Protected));

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { logout } from '../actions/session_actions';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class Nav extends React.Component {
     constructor(props) {
@@ -10,6 +10,7 @@ class Nav extends React.Component {
 
         this.handleDropdown = this.handleDropdown.bind(this);
         this.handleLogout = this.handleLogout.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
     handleDropdown(e) {
@@ -24,6 +25,10 @@ class Nav extends React.Component {
     handleLogout(e) {
         e.preventDefault();
         this.props.logout();
+    }
+
+    handleClick(e) {
+        e.preventDefault();
         this.setState({ dropdown: "hide" });
     }
 
@@ -34,8 +39,8 @@ class Nav extends React.Component {
                     <Link className='logo' to='/'>ShutterStop</Link>
                     <div id='profile-dropdown'>
                         <div className="dropdown-button" onClick={this.handleDropdown}></div>
-                        <ul className={this.state.dropdown}>
-                            <li>Welcome, {this.props.user.username}</li>
+                        <ul className={this.state.dropdown} onClick={this.handleClick}>
+                            <li className="hover-hightlight" onClick={() => this.props.history.push('/update')}>Update</li>
                             <li className="hover-hightlight" onClick={this.handleLogout}>Logout</li>
                         </ul>
                     </div>
@@ -61,4 +66,4 @@ const mapStateToProps = ({ entities: { users }, session: { id } }) => ({
 const mapDispatchToProps = (dispatch) => ({
     logout: () => dispatch(logout())
 });
-export default connect(mapStateToProps, mapDispatchToProps)(Nav);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Nav));
