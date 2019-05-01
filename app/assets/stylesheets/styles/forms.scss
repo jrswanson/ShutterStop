@@ -67,6 +67,22 @@
     cursor: pointer;
 }
 
+.session-form form .demo-button {
+    margin: 6px 0px 10px 0px;
+    border-style: none;
+    background-color: #1673ce;
+    font-size: 14pt;
+    color: white;
+    font-weight: 300;
+    transition: background-color 0.25s;
+    padding: 8px;
+}
+
+.session-form form .demo-button:hover {
+    background-color: #3089f4;
+    cursor: pointer;
+}
+
 .errors {
     margin: 6px auto;
     width: 300px;

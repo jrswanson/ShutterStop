@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { update } from '../actions/session_actions';
 
 class UpdateForm extends React.Component {
@@ -15,18 +16,17 @@ class UpdateForm extends React.Component {
 
     componentDidMount() {
         this.props.clearErrors();
-        if (this.props.currentUser.email
-            && this.props.currentUser.first_name
-            && this.props.currentUser.last_name) {
-            this.setState(this.props.currentUser);
-        } else {
-            this.setState({ id: this.props.currentUser.id});
-        }
+        this.setState({id: (this.props.currentUser.id ? this.props.currentUser.id : "")});
+        this.setState({email: (this.props.currentUser.email ? this.props.currentUser.email : "")});
+        this.setState({first_name: (this.props.currentUser.first_name ? this.props.currentUser.first_name : "")});
+        this.setState({last_name: (this.props.currentUser.last_name ? this.props.currentUser.last_name : "")});
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.processForm(this.state);
+        this.props.processForm(this.state).then(() => {
+            this.props.history.push('/');
+        });
     }
 
     handleEmail(e) {
@@ -92,5 +92,5 @@ const mapDispatchToProps = dispatch => ({
     clearErrors: () => dispatch({ type: 'NULL' })
 });
 
-export const FirstLoginForm = connect(mstpFirst, mapDispatchToProps)(UpdateForm);
-export const UpdateUserForm = connect(mapStateToProps, mapDispatchToProps)(UpdateForm);
+export const FirstLoginForm = withRouter(connect(mstpFirst, mapDispatchToProps)(UpdateForm));
+export const UpdateUserForm = withRouter(connect(mapStateToProps, mapDispatchToProps)(UpdateForm));

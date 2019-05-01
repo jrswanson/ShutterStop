@@ -13,6 +13,7 @@ class SessionForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleUsername = this.handleUsername.bind(this);
         this.handlePassword = this.handlePassword.bind(this);
+        this.handleDemo = this.handleDemo.bind(this);
     }
 
     componentDidMount() {
@@ -34,6 +35,27 @@ class SessionForm extends React.Component {
         this.setState({ password: e.currentTarget.value });
     }
 
+    handleDemo(e) {
+        e.preventDefault();
+
+        let demoUsername = 'guest'.split('');
+        let demoPassword = 'password'.split('');
+
+        this.demoLogin(demoUsername, demoPassword);
+    }
+
+    demoLogin(username, password) {
+        if (username.length > 0) {
+            this.setState({username: this.state.username + username.shift()},
+                () => window.setTimeout(() => this.demoLogin(username, password), 100));
+        } else if (password.length > 0) {
+            this.setState({ password: this.state.password + password.shift() },
+                () => window.setTimeout(() => this.demoLogin(username, password), 100));
+        } else {
+            this.props.processForm(this.state);
+        }
+    }
+
     renderErrors() {
         if (this.props.errors.length > 0) {
             return this.props.errors.map(error => <li>{error}</li>);
@@ -43,6 +65,12 @@ class SessionForm extends React.Component {
     }
 
     render() {
+        let demoButton;
+        if (this.props.name === "Log in") {
+            demoButton = <input className="demo-button" type="button" value='Demo Log in' onClick={this.handleDemo}></input>;
+        } else {
+            demoButton = "";
+        }
         return (
             <div className='session-form'>
                 <h1>{this.props.name === 'Sign up' ? 'Join ShutterStop' : 'Log In to ShutterStop'}</h1>
@@ -53,6 +81,7 @@ class SessionForm extends React.Component {
                         <label htmlFor="Password">Password</label>
                         <input id="Password" type="password" value={this.state.password} onChange={this.handlePassword} />
                         <input className="submit-button" type="submit" value={this.props.name} />
+                        {demoButton}
                     </form>
                 </div>
                 <ul className="errors">{this.renderErrors()}</ul>

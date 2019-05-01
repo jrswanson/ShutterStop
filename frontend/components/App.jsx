@@ -14,7 +14,7 @@ class App extends React.Component {
                 <div>
                     <Nav />
                     <main>
-                        <Route to='/create-account' component={FirstLoginForm} />
+                        <Route to='/' component={FirstLoginForm} />
                     </main>
                 </div>
             );
