@@ -10,8 +10,26 @@ class Api::UsersController < ApplicationController
         end
     end
 
+    def update
+        @user = User.find_by(id: params[:id])
+    
+        if current_user == @user
+            if @user.update(update_params);
+                render :show
+            else
+                render json: @user.errors.full_messages, status: 404
+            end
+        else
+            render json: ['Not your account!'], status: 404
+        end
+    end
+
     private
     def user_params
         params.require(:user).permit(:username, :email, :first_name, :last_name, :password)
+    end
+
+    def update_params
+        params.require(:user).permit(:email, :first_name, :last_name)
     end
 end

@@ -35,3 +35,9 @@ export const logout = () => dispatch => (
         .then(() => dispatch(logoutCurrentUser()))
         .fail(errors => dispatch(receieveErrors(errors)))
 );
+
+export const update = user => dispatch => (
+    APIUtils.update(user)
+        .then(res => dispatch(receieveCurrentUser(res)))
+        .fail(errors => dispatch(receieveErrors(errors)))
+);
