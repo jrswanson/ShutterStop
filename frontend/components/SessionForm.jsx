@@ -36,7 +36,7 @@ class SessionForm extends React.Component {
 
     renderErrors() {
         if (this.props.errors.length > 0) {
-            return this.props.errors.join(", ");
+            return this.props.errors.map(error => <div>{error}</div>);
         } else {
             return "";
         }
@@ -44,17 +44,19 @@ class SessionForm extends React.Component {
 
     render() {
         return (
-            <>
-                <h3>{this.props.name === 'Sign Up' ? 'Join ShutterStop' : 'Login In to ShutterStop'}</h3>
-                <form onSubmit={this.handleSubmit}>
-                    Username:
-                    <input type="text" value={this.state.username} onChange={this.handleUsername} />
-                    Password:
-                    <input type="password" value={this.state.password} onChange={this.handlePassword} />
-                    <input type="submit" value={this.props.name} />
-                </form>
+            <div className='session_form'>
+                <h1>{this.props.name === 'Sign Up' ? 'Join ShutterStop' : 'Login In to ShutterStop'}</h1>
+                <div id='form_main'>
+                    <form onSubmit={this.handleSubmit}>
+                        <label htmlFor="Username">Username</label>
+                        <input id="Username" type="text" value={this.state.username} onChange={this.handleUsername} />
+                        <label htmlFor="Username">Password</label>
+                        <input id="Password" type="password" value={this.state.password} onChange={this.handlePassword} />
+                        <input className="submit_button" type="submit" value={this.props.name} />
+                    </form>
+                </div>
                 <div className="errors">{this.renderErrors()}</div>
-            </>
+            </div>
         );
     }
 }
