@@ -2,7 +2,7 @@ import * as APIUtils from '../util/session_api_util';
 
 export const RECEIVE_USER = 'RECEIVE_USER';
 export const LOGOUT = 'LOGOUT';
-export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+export const RECEIVE_LOGIN_ERRORS = 'RECEIVE_LOGIN_ERRORS';
 
 export const receieveCurrentUser = (user) => ({
     type: RECEIVE_USER,
@@ -14,7 +14,7 @@ export const logoutCurrentUser = () => ({
 });
 
 export const receieveErrors = (errors) => ({
-    type: RECEIVE_ERRORS,
+    type: RECEIVE_LOGIN_ERRORS,
     errors
 });
 

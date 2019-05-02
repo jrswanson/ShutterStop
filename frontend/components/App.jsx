@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 import { SignupForm, LoginForm } from './SessionForm';
 import { FirstLoginForm, UpdateUserForm } from './UpdateForm';
+import PhotoIndex from './PhotoIndex';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 class App extends React.Component {
@@ -26,6 +27,7 @@ class App extends React.Component {
                         <ProtectedRoute path='/update' component={UpdateUserForm} />
                         <AuthRoute path='/signup' component={SignupForm} />
                         <AuthRoute path='/login' component={LoginForm} />
+                        <Route path='/photos' component={PhotoIndex} />
                     </main>
                 </div>
             );

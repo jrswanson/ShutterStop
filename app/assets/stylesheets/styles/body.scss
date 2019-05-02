@@ -9,3 +9,16 @@ body {
 main {
     margin-top: 70px;
 }
+
+.photos-container ul {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+
+.photos-container img {
+    height: 200px;
+    margin: 5px;
+}

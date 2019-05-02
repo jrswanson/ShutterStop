@@ -54,9 +54,9 @@ class UpdateForm extends React.Component {
 
     render() {
         return (
-            <div className='session-form'>
+            <div className='user-form'>
                 <h1>{this.props.name === 'first' ? "Welcome to ShutterStop. Let's get to know you a little." : 'Update your information.'}</h1>
-                <div id='form-main'>
+                <div className='user-form-main'>
                     <form onSubmit={this.handleSubmit}>
                         <label htmlFor="Email">Email</label>
                         <input id="Email" type="email" value={this.state.email} onChange={this.handleEmail} />

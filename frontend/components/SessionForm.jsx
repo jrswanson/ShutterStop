@@ -72,9 +72,9 @@ class SessionForm extends React.Component {
             demoButton = "";
         }
         return (
-            <div className='session-form'>
+            <div className='user-form'>
                 <h1>{this.props.name === 'Sign up' ? 'Join ShutterStop' : 'Log In to ShutterStop'}</h1>
-                <div id='form-main'>
+                <div className='user-form-main'>
                     <form onSubmit={this.handleSubmit}>
                         <label htmlFor="Username">Username</label>
                         <input id="Username" type="text" value={this.state.username} onChange={this.handleUsername} />
