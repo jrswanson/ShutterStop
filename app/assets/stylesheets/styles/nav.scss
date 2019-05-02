@@ -1,10 +1,12 @@
+@import 'colors.scss';
+
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #fff;
+    background: white;
     padding: 15px;
-    border-bottom: solid #eeeff2 1px;
+    border-bottom: solid $off-white 1px;
     position: fixed;
     top: 0;
     width: 100%;
@@ -21,7 +23,7 @@ header {
 }
 
 .logo:hover {
-    color: #3089f4;
+    color: $light-blue;
 }
 
 .left-nav {
@@ -36,23 +38,23 @@ header {
 }
 
 #login-link {
-    color: #1673ce;
+    color: $dark-blue;
     transition: color 0.125s;
 }
 
 #login-link:hover {
-    color: #3089f4
+    color: $light-blue
 }
 
 #signup-link {
-    background-color: #1673ce;
+    background-color: $dark-blue;
     color: white;
     transition: background-color 0.125s;
     border-radius: 100px;
 }
 
 #signup-link:hover {
-    background-color: #3089f4;
+    background-color: $light-blue;
 }
 
 #profile-dropdown {
@@ -72,7 +74,7 @@ header {
     position: absolute;
     top: 45px;
     right: -3px;
-    background-color: #fff;
+    background-color: white;
     border-radius: 10px;
     box-sizing: border-box;
     min-width: 170px;
@@ -93,7 +95,7 @@ header {
     transform: rotate(135deg);
     top: -6px;
     right: 15px;
-    background-color: #fff;
+    background-color: white;
     box-shadow: -3px 3px 3px rgba(0,0,0,0.04);
 }
 
@@ -116,5 +118,5 @@ header {
 .hover-hightlight:hover {
     cursor: pointer;
     color: white;
-    background-color: #1673ce;
+    background-color: $dark-blue;
 }

@@ -1,9 +1,11 @@
+@import 'colors.scss';
+
 .session-form {
     margin: 10px auto;
     width: 400px;
-    background: #fff;
+    background: white;
     padding: 10px;
-    border: solid #eeeff2 1px;
+    border: solid $off-white 1px;
     border-radius: 5px;
     font-weight: 300;
     line-height: 1.2;
@@ -13,7 +15,7 @@
     font-size: 18pt;
     padding: 20px;
     text-align: center;
-    color: rgb(68, 68, 68);
+    color: $medium-gray;
 }
 
 #form-main {
@@ -31,7 +33,7 @@
     margin: 2px 0px;
     align-self: flex-start;
     font-size: 11pt;
-    color: rgb(100, 100, 100);
+    color: $light-gray;
 }
 
 .session-form form input {
@@ -48,13 +50,13 @@
 }
 
 .session-form form input:focus {
-    border-color: #0099e5;
+    border-color: $bright-blue;
 }
 
 .session-form form .submit-button {
     margin: 6px 0px 10px 0px;
     border-style: none;
-    background-color: #34bf49;
+    background-color: $dark-green;
     font-size: 14pt;
     color: white;
     font-weight: 300;
@@ -63,14 +65,14 @@
 }
 
 .session-form form .submit-button:hover {
-    background-color: #41cb56;
+    background-color: $light-green;
     cursor: pointer;
 }
 
 .session-form form .demo-button {
     margin: 6px 0px 10px 0px;
     border-style: none;
-    background-color: #1673ce;
+    background-color: $dark-blue;
     font-size: 14pt;
     color: white;
     font-weight: 300;
@@ -79,7 +81,7 @@
 }
 
 .session-form form .demo-button:hover {
-    background-color: #3089f4;
+    background-color: $light-blue;
     cursor: pointer;
 }
 
@@ -88,7 +90,7 @@
     width: 300px;
     box-sizing: content-box;
     list-style: inside;
-    color: rgb(219, 33, 27);
+    color: $errors-red;
 }
 
 .errors li {
