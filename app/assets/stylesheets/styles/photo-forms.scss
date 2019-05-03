@@ -1,0 +1,73 @@
+@import 'colors.scss';
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.drag-modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(2, 173, 234, 0.3);
+  z-index: 12;
+  border: 2px dashed $brightest-blue;
+}
+
+.modal-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: $white;
+  height: calc(100% - 100px);
+  width: calc(100% - 100px);
+  box-sizing: border-box;
+  border-radius: 3px;
+  box-shadow: 0 2px 25px rgba(0,0,0,0.2);
+}
+
+.select-photo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.new-pic-button {
+    width: 180px;
+    padding: 12px 0px;
+    margin-top: 30px;
+    border-radius: 3px;
+    background-color: $bright-blue;
+    transition: background-color 0.25s;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.new-pic-button:hover {
+    background-color: $brightest-blue;
+}
+
+input[type='file'] {
+    display: none;
+}
+
+.select-photo p {
+    color: $bright-blue;
+    font-size: 14px;
+    font-weight: 300;
+    margin: 25px 0px;
+}
