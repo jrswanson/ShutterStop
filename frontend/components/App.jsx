@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 import { SignupForm, LoginForm } from './SessionForm';
 import { FirstLoginForm, UpdateUserForm } from './UpdateForm';
+import NewPictureForm from './NewPictureForm';
 import PhotoIndex from './PhotoIndex';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
@@ -22,12 +23,13 @@ class App extends React.Component {
         } else {
             return (
                 <div>
+                    {this.props.modal === "new photo" ? <NewPictureForm/> : ''}
                     <Nav />
                     <main>
                         <ProtectedRoute path='/update' component={UpdateUserForm} />
                         <AuthRoute path='/signup' component={SignupForm} />
                         <AuthRoute path='/login' component={LoginForm} />
-                        <Route path='/photos' component={PhotoIndex} />
+                        <Route path='/' component={PhotoIndex} />
                     </main>
                 </div>
             );
@@ -43,7 +45,7 @@ const mapStateToProps = state => {
     } else {
         bool = false;
     }
-    return {finishAccount: bool};
+    return {finishAccount: bool, modal: state.ui.modal};
 };
 
 export default connect(mapStateToProps)(App);
