@@ -30,3 +30,9 @@ export const fetchPhoto = photoId => dispatch => (
         .then(res => dispatch(receievePhoto(res)))
         .fail(errors => dispatch(receieveErrors(errors)))
 );
+
+export const uploadPhoto = photo => dispatch => (
+    APIUtils.uploadPhoto(photo)
+        .then(res => dispatch(receievePhoto(res)))
+        .fail(errors => dispatch(receieveErrors(errors)))
+);

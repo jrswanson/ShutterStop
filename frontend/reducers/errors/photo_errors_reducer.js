@@ -5,7 +5,11 @@ export const photosErrorsReducer = (state = [], action) => {
 
     switch (action.type) {
         case RECEIVE_PHOTO_ERRORS:
-            return action.errors.responseJSON;
+            if (action.errors.responseJSON) {
+                return action.errors.responseJSON;
+            } else {
+                return action.errors;
+            }
         default:
             return [];
     }
