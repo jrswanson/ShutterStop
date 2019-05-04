@@ -29,7 +29,7 @@ class App extends React.Component {
                         <ProtectedRoute path='/update' component={UpdateUserForm} />
                         <AuthRoute path='/signup' component={SignupForm} />
                         <AuthRoute path='/login' component={LoginForm} />
-                        <Route path='/' component={PhotoIndex} />
+                        <Route path='/feed' component={PhotoIndex} />
                     </main>
                 </div>
             );

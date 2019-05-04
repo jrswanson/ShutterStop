@@ -27,6 +27,7 @@ class NewPictureForm extends React.Component {
         this.handleDescription = this.handleDescription.bind(this);
         this.handleKeywords = this.handleKeywords.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleCancelUpload = this.handleCancelUpload.bind(this);
     }
 
     handleDragEnter(e) {
@@ -100,6 +101,18 @@ class NewPictureForm extends React.Component {
         this.props.clearModal();
     }
 
+    handleCancelUpload() {
+        this.setState({
+            drag: 'drag-hide',
+            photoFile: null,
+            photoURL: '',
+            title: '',
+            category: 'Uncategorized',
+            description: '',
+            keywords: ''
+        });
+    }
+
     render() {
         if (this.state.photoFile) {
             return (
@@ -109,8 +122,15 @@ class NewPictureForm extends React.Component {
                         <div className='modal-child'
                             onClick={e => e.stopPropagation()}>
                             <div className='new-photo-pane'>
-                                <div className='photo-preview'>
-                                    <img src={this.state.photoURL}/>
+                                <div className='photo-preview-section'>
+                                    <div className='preview-img-container'>
+                                        <img src={this.state.photoURL}
+                                            className='preview-img'/>
+                                        <div id='preview-gradient'></div>
+                                        <div id='close-preview'
+                                            onClick={this.handleCancelUpload}>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div className='new-photo-form'>
                                     <div className='top-photo-form'>
