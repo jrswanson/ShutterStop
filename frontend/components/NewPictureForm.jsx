@@ -193,7 +193,7 @@ class NewPictureForm extends React.Component {
                                     <input type='file'
                                         onChange={this.handleFile}/>
                                 </label>
-                                <p>Or drag & drop photos anywhere on this page</p>
+                                <p>Or drag & drop a photo anywhere on this page</p>
                             </div>
                         </div>
                     </div>
