@@ -1,0 +1,147 @@
+@import 'colors.scss';
+
+.update-photo-form {
+  width: 340px;
+  height: calc(100vh - 63px);
+  background: white;
+  border-left: 1px solid $off-white;
+}
+
+.update-photo-form .submit-photo-form {
+  height: 70px;
+  box-sizing: border-box;
+  padding: 15px;
+  border-top: 1px solid $off-white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.update-photo-form .info-photo-form {
+  height: calc(100% - 70px);
+  overflow: scroll;
+}
+
+.update-photo-form h1 {
+  padding: 15px 15px 10px 15px;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.update-photo-form form {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 15px;
+}
+
+.update-photo-form label {
+  margin-bottom: 10px;
+  color: $bright-blue;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.update-photo-form input {
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(185,193,199,0.5);
+  transition: border-color .25s;
+  outline: none;
+}
+
+.update-photo-form input:focus {
+  border-color: $bright-blue;
+}
+
+.update-photo-form select {
+  margin-bottom: 20px;
+  width: 100%;
+  height: 35px;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: white;
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(185,193,199,0.5);
+  transition: border-color .25s;
+  outline: none;
+}
+
+.update-photo-form select:focus {
+  border-color: $bright-blue;
+}
+
+.update-photo-form textarea {
+  margin-bottom: 20px;
+  width: 310px;
+  height: 110px;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(185,193,199,0.5);
+  transition: border-color .25s;
+  outline: none;
+  resize: none;
+  overflow: scroll;
+}
+
+.update-photo-form textarea:focus {
+  border-color: $bright-blue;
+}
+
+.update-photo-form .submit-button {
+  border-style: none;
+  background-color: $dark-green;
+  font-size: 14px;
+  color: white;
+  font-weight: 500;
+  transition: background-color 0.25s;
+  width: 70%;
+  padding: 8px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.update-photo-form .submit-button:hover {
+  background-color: $light-green;
+}
+
+.update-photo-form .cancel-save {
+  color: $light-gray;
+  font-size: 14px;
+  font-weight: 300;
+  width: 20%;
+  text-align: center;
+  transition: color 0.2s;
+  cursor: pointer;
+}
+
+.update-photo-form .cancel-save:hover {
+  color: $errors-red
+}
+
+.update-photo-form .delete-button {
+  border-style: none;
+  background-color: #71767a;
+  font-size: 14px;
+  color: white;
+  font-weight: 500;
+  transition: background-color 0.25s;
+  padding: 8px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.update-photo-form .delete-button:hover {
+  background-color: #7d8387;
+}

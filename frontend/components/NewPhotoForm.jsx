@@ -4,7 +4,7 @@ import { clearModal } from '../actions/ui_actions';
 import { uploadPhoto, receieveErrors } from '../actions/photos_actions';
 import categoryList from '../util/category_list';
 
-class NewPictureForm extends React.Component {
+class NewPhotoForm extends React.Component {
     constructor(props) {
         super(props);
 
@@ -133,7 +133,7 @@ class NewPictureForm extends React.Component {
                                     </div>
                                 </div>
                                 <div className='new-photo-form'>
-                                    <div className='top-photo-form'>
+                                    <div className='submit-photo-form'>
                                         <input
                                             type='button'
                                             onClick={this.handleSubmit}
@@ -141,7 +141,7 @@ class NewPictureForm extends React.Component {
                                             className='submit-button'>
                                         </input>
                                     </div>
-                                    <div className='bottom-photo-form'>
+                                    <div className='info-photo-form'>
                                         <form>
                                             <label htmlFor='title'>Title</label>
                                             <input id='title'
@@ -214,4 +214,4 @@ const mapDispatchToProps = dispatch => ({
     receieveErrors: errors => dispatch(receieveErrors(errors))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewPictureForm);
+export default connect(mapStateToProps, mapDispatchToProps)(NewPhotoForm);

@@ -21,3 +21,18 @@ export const uploadPhoto = photo => (
         processData: false
     })
 );
+
+export const updatePhoto = photo => (
+    $.ajax({
+        method: 'PATCH',
+        url: `/api/photos/${photo.id}`,
+        data: { photo }
+    })
+);
+
+export const deletePhoto = photoId => (
+    $.ajax({
+        method: 'DELETE',
+        url: `/api/photos/${photoId}`
+    })
+);

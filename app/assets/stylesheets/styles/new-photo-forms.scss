@@ -143,14 +143,14 @@ input[type='file'] {
   border-left: 1px solid $off-white;
 }
 
-.new-photo-form .top-photo-form {
+.new-photo-form .submit-photo-form {
   height: 70px;
   box-sizing: border-box;
   padding: 15px;
   border-bottom: 1px solid $off-white;
 }
 
-.new-photo-form .bottom-photo-form {
+.new-photo-form .info-photo-form {
   height: calc(100% - 70px);
   overflow: scroll;
 }

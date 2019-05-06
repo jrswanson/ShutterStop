@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 import { SignupForm, LoginForm } from './SessionForm';
 import { FirstLoginForm, UpdateUserForm } from './UpdateForm';
-import NewPictureForm from './NewPictureForm';
+import NewPhotoForm from './NewPhotoForm';
+import UpdatePhotoForm from './UpdatePhotoForm';
 import PhotoIndex from './PhotoIndex';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
@@ -23,13 +24,14 @@ class App extends React.Component {
         } else {
             return (
                 <div>
-                    {this.props.modal === "new photo" ? <NewPictureForm/> : ''}
+                    {this.props.modal === "new photo" ? <NewPhotoForm/> : ''}
                     <Nav />
                     <main>
                         <ProtectedRoute path='/update' component={UpdateUserForm} />
                         <AuthRoute path='/signup' component={SignupForm} />
                         <AuthRoute path='/login' component={LoginForm} />
                         <Route path='/feed' component={PhotoIndex} />
+                        <Route path='/photos/update' component={UpdatePhotoForm} />
                     </main>
                 </div>
             );
