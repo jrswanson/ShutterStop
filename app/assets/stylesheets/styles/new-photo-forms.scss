@@ -7,7 +7,7 @@
   right: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 10;
+  z-index: 50;
 }
 
 .drag-modal {
@@ -17,7 +17,7 @@
   right: 0;
   left: 0;
   background: rgba(2, 173, 234, 0.3);
-  z-index: 12;
+  z-index: 60;
   border: 2px dashed $brightest-blue;
 }
 
@@ -48,6 +48,7 @@
   padding: 12px 0px;
   margin-top: 30px;
   border-radius: 3px;
+  border-style: none;
   background-color: $bright-blue;
   transition: background-color 0.25s;
   color: white;

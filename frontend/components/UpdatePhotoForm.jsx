@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updatePhoto, deletePhoto } from '../actions/photos_actions';
+import { fetchPhotos, updatePhoto, deletePhoto } from '../actions/photos_actions';
 import categoryList from '../util/category_list';
 
 class UpdatePhotoForm extends React.Component {
@@ -15,6 +15,13 @@ class UpdatePhotoForm extends React.Component {
         this.handleKeywords = this.handleKeywords.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
+        this.handleCover = this.handleCover.bind(this);
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.photo !== this.props.photo) {
+            this.setState(this.props.photo);
+        }
     }
 
     handleTitle(e) {
@@ -44,7 +51,17 @@ class UpdatePhotoForm extends React.Component {
 
     handleDelete(e) {
         e.preventDefault();
-        this.props.deletePhoto(this.state.id);
+        if (confirm('Are you sure you want to permanently delete this photo? This action cannot be undone!')) {
+            this.props.deletePhoto(this.state.id);
+        }
+    }
+
+    handleCover() {
+        if (this.state.id) {
+            return '';
+        } else {
+            return 'update-form-cover';
+        }
     }
 
     render () {
@@ -97,17 +114,18 @@ class UpdatePhotoForm extends React.Component {
                         className='submit-button'>
                     </input>
                 </div>
+                <div className={this.handleCover()}></div>
             </div>
         );
     }
 }
 
 const mapStateToProps = state => ({
-    photo: state.entities.photos[1],
     categoryList: Object.freeze(categoryList)
 });
 
 const mapDispatchToProps = dispatch => ({
+    fetchPhotos: () => dispatch(fetchPhotos()),
     updatePhoto: photo => dispatch(updatePhoto(photo)),
     deletePhoto: photoId => dispatch(deletePhoto(photoId))
 });

@@ -5,12 +5,11 @@ import { Route } from 'react-router-dom';
 import { SignupForm, LoginForm } from './SessionForm';
 import { FirstLoginForm, UpdateUserForm } from './UpdateForm';
 import NewPhotoForm from './NewPhotoForm';
-import UpdatePhotoForm from './UpdatePhotoForm';
+import PhotoManager from './PhotoManager';
 import PhotoIndex from './PhotoIndex';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 class App extends React.Component {
-
     render () {
         if (this.props.finishAccount) {
             return (
@@ -28,10 +27,10 @@ class App extends React.Component {
                     <Nav />
                     <main>
                         <ProtectedRoute path='/update' component={UpdateUserForm} />
+                        <ProtectedRoute path='/photos/manage' component={PhotoManager} />
                         <AuthRoute path='/signup' component={SignupForm} />
                         <AuthRoute path='/login' component={LoginForm} />
                         <Route path='/feed' component={PhotoIndex} />
-                        <Route path='/photos/update' component={UpdatePhotoForm} />
                     </main>
                 </div>
             );
