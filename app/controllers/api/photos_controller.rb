@@ -30,7 +30,38 @@ class Api::PhotosController < ApplicationController
         end
     end
 
+    def update
+        @photo = Photo.find_by(id: params[:id])
+
+        if @photo && logged_in? && current_user.id == @photo.user_id
+            if @photo.update(update_params)
+                render :show
+            else
+                render json: @photo.errors.full_messages, status: 404
+            end
+        else
+            render json: ['Must be logged in, access denied'], status: 404
+        end
+    end
+
+    def destroy
+        @photo = Photo.find_by(id: params[:id])
+
+        if @photo && logged_in? && current_user.id == @photo.user_id
+            @photo.destroy
+            render json: {}
+        else
+            render json: ['Must be logged in, access denied'], status: 404
+        end
+    end
+
+    private
+
     def photo_params
         params.require(:photo).permit(:title, :category, :description, :keywords, :photo)
+    end
+
+    def update_params
+        params.require(:photo).permit(:title, :category, :description, :keywords)
     end
 end
