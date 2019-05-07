@@ -63,6 +63,7 @@ class NewPhotoForm extends React.Component {
             fileReader.readAsDataURL(file);
         } else {
             this.props.receieveErrors(['File type must be jpeg']);
+            window.alert('File type must be jpeg! Please choose another file.');
         }
     }
 
