@@ -1,0 +1,66 @@
+@import 'colors.scss';
+
+
+.photos-index-container {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.photo-index-item {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    border: 1px solid rgb(215, 216, 219);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.photo-index-item img {
+    object-fit: cover;
+    height: 250px;
+    width: 250px;
+}
+
+.photo-index-bottom {
+    background-color: white;
+    height: 60px;
+    width: 250px;
+    padding: 5px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.photo-index-bottom > div {
+    margin: 0px 5px;
+};
+
+.photo-title {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.photo-under-title {
+    display: flex;
+    flex-direction: row;
+}
+
+.photo-under-title div {
+    margin: 0px 4px 0px 0px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20px;
+}
+
+.follow-button {
+    color: $dark-blue;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.follow-button:hover {
+    color: $light-blue;
+}

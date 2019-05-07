@@ -1,4 +1,9 @@
 class Api::FollowsController < ApplicationController
+    def index
+        @follows = Follow.all
+        render :index
+    end
+
     def create
         if logged_in?
             @follow = Follow.new(follow_params)

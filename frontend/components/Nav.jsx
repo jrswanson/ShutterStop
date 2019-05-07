@@ -43,7 +43,7 @@ class Nav extends React.Component {
         if (this.props.user) {
             return (
                 <header>
-                    <Link className='logo' to='/'>ShutterStop</Link>
+                    <Link className='logo' to='/feed'>ShutterStop</Link>
                     <div className='right-nav'>
                         <div id='profile-dropdown'>
                             <div className="dropdown-button" onClick={this.handleDropdown}></div>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const PhotoManagerItem = (props) => (
-    <div className='photo-box'>
+    <div className='photo-manager-box'>
         <img src={props.photo.photoURL}
             onClick={props.handlePhotoSelect}
             className={props.selected ? 'photo-item-selected' : ''}/>

@@ -1,11 +1,11 @@
-import { RECEIVE_USER, LOGOUT } from '../actions/session_actions';
+import { RECEIVE_CURRENT_USER, LOGOUT } from '../actions/session_actions';
 
 export const sessionReducer = (state = { id: null }, action) => {
     Object.freeze(state);
     let newState = Object.assign({}, state);
 
     switch(action.type) {
-        case RECEIVE_USER:
+        case RECEIVE_CURRENT_USER:
             newState = { id: action.user.id };
             return newState;
         case LOGOUT:
