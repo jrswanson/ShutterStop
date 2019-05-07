@@ -47,12 +47,26 @@ class UpdatePhotoForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.updatePhoto(this.state);
+        this.setState({
+            id: null,
+            title: '',
+            category: 'Uncategorized',
+            description: '',
+            keywords: ''
+        });
     }
 
     handleDelete(e) {
         e.preventDefault();
         if (confirm('Are you sure you want to permanently delete this photo? This action cannot be undone!')) {
             this.props.deletePhoto(this.state.id);
+            this.setState({
+                id: null,
+                title: '',
+                category: 'Uncategorized',
+                description: '',
+                keywords: ''
+            });
         }
     }
 
@@ -69,7 +83,7 @@ class UpdatePhotoForm extends React.Component {
             <div className='update-photo-form'>
                 <div className='info-photo-form'>
                     <h1>Edit your photo</h1>
-                    <form>
+                    <form onSubmit={this.handleSubmit}>
                         <label htmlFor='title'>Title</label>
                         <input id='title'
                             type='text'

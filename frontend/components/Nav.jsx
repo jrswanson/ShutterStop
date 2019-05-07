@@ -48,7 +48,8 @@ class Nav extends React.Component {
                         <div id='profile-dropdown'>
                             <div className="dropdown-button" onClick={this.handleDropdown}></div>
                             <ul className={this.state.dropdown} onClick={this.handleClick}>
-                                <li className="hover-hightlight" onClick={() => this.props.history.push('/update')}>Update</li>
+                                <li className="hover-hightlight" onClick={() => this.props.history.push('/photos/manage')}>My photos</li>
+                                <li className="hover-hightlight" onClick={() => this.props.history.push('/update')}>Update profile</li>
                                 <li className="hover-hightlight" onClick={this.handleLogout}>Logout</li>
                             </ul>
                         </div>

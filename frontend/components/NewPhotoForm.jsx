@@ -142,7 +142,7 @@ class NewPhotoForm extends React.Component {
                                         </input>
                                     </div>
                                     <div className='info-photo-form'>
-                                        <form>
+                                        <form onSubmit={this.handleSubmit}>
                                             <label htmlFor='title'>Title</label>
                                             <input id='title'
                                                 type='text'
