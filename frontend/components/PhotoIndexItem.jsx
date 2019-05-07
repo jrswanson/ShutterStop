@@ -61,7 +61,10 @@ class PhotoIndexItem extends React.Component {
                     <div className='photo-title'>{this.props.photo.title}</div>
                     <div className='photo-under-title'>
                         <div>by</div>
-                        <div>{this.props.author ? `${this.props.author.first_name} ${this.props.author.last_name}` : ''}</div>
+                        <div
+                            className='photo-author'>
+                            {this.props.author ? `${this.props.author.first_name} ${this.props.author.last_name}` : ''}
+                        </div>
                         {this.renderFollow()}
                     </div>
                 </div>

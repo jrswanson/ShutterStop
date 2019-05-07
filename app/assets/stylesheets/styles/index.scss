@@ -36,11 +36,15 @@
 
 .photo-index-bottom > div {
     margin: 0px 5px;
-};
+}
 
 .photo-title {
     font-size: 20px;
     font-weight: 500;
+    line-height: 26px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .photo-under-title {
@@ -53,6 +57,13 @@
     font-size: 14px;
     font-weight: 300;
     line-height: 20px;
+}
+
+.photo-under-title .photo-author {
+    max-width: 70%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .follow-button {
