@@ -13,7 +13,7 @@ class Follow < ApplicationRecord
     validates :follower_id, :followee_id, presence: true
     validate :ensure_different
 
-    belongs_to :follower
+    belongs_to :follower,
         foreign_key: :follower_id,
         class_name: :User
 
@@ -22,6 +22,8 @@ class Follow < ApplicationRecord
         class_name: :User
 
     def ensure_different
-        follower_id != followee_id
+        if self.follower_id == self.followee_id
+            errors[:follower] << "can't be the same as followee"
+        end
     end
 end
