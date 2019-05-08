@@ -74,9 +74,11 @@ class Nav extends React.Component {
 const mapStateToProps = ({ entities: { users }, session: { id } }) => ({
     user: id ? users[id] : null
 });
+
 const mapDispatchToProps = (dispatch) => ({
     logout: () => dispatch(logout()),
     newPhotoModal: () => dispatch(newPhotoModal()),
     clearModal: () => dispatch(clearModal())
 });
+
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Nav));

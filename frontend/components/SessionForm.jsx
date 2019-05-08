@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { signup, login } from '../actions/session_actions';
+import { withRouter } from 'react-router-dom';
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -22,7 +23,9 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.processForm(this.state);
+        this.props.processForm(this.state).then(() => {
+            this.props.history.push('/feed');
+        });
     }
 
     handleUsername(e) {
@@ -52,7 +55,9 @@ class SessionForm extends React.Component {
             this.setState({ password: this.state.password + password.shift() },
                 () => window.setTimeout(() => this.demoLogin(username, password), 100));
         } else {
-            this.props.processForm(this.state);
+            this.props.processForm(this.state).then(() => {
+                this.props.history.push('/feed');
+            });
         }
     }
 
@@ -110,5 +115,5 @@ const mdtpLogin = dispatch => ({
     clearErrors: () => dispatch({ type: 'NULL' })
 });
 
-export const LoginForm = connect(mstpLogin, mdtpLogin)(SessionForm);
-export const SignupForm = connect(mstpSignup, mdtpSignup)(SessionForm);
+export const LoginForm = withRouter(connect(mstpLogin, mdtpLogin)(SessionForm));
+export const SignupForm = withRouter(connect(mstpSignup, mdtpSignup)(SessionForm));

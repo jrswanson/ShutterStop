@@ -39,6 +39,15 @@ class Api::UsersController < ApplicationController
         end
     end
 
+    def follows
+        if logged_in?
+            @followed_photos = current_user.followed_photos.order(:created_at)
+            render :follows
+        else
+            render json: []
+        end
+    end
+
     private
     def user_params
         params.require(:user).permit(:username, :email, :first_name, :last_name, :password)

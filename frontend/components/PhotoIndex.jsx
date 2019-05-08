@@ -3,13 +3,17 @@ import { connect } from 'react-redux';
 import { fetchUsers } from '../actions/session_actions';
 import { fetchPhotos } from '../actions/photos_actions';
 import { fetchFollows } from '../actions/follows_actions';
+import { fetchFollowedPhotos } from '../util/user_api_util';
 import PhotoIndexItem from './PhotoIndexItem';
 
 class PhotosIndex extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = { fetchComplete: false };
+        this.state = {
+            fetchComplete: false,
+            followedPhotos: []
+        };
     }
 
     componentDidMount() {
@@ -18,15 +22,51 @@ class PhotosIndex extends React.Component {
         }).then(() => {
             return this.props.fetchPhotos();
         }).then(() => {
-            this.setState( { fetchComplete: true } );
+            return fetchFollowedPhotos();
+        }).then(res => {
+            return this.setState({ followedPhotos: res.reverse() });
+        }).then(() => {
+            this.setState({ fetchComplete: true });
         });
+    }
+
+    componentDidUpdate(prevProps) {
+        if(prevProps.follows !== this.props.follows) {
+            fetchFollowedPhotos().then(res => {
+                this.setState({ followedPhotos: res.reverse() });
+            });
+        } else if (!this.props.currentUserId && this.state.followedPhotos.length > 0) {
+            this.setState({ followedPhotos: [] });
+        }
+    }
+
+    renderFeed() {
+        if (this.state.followedPhotos.length > 0) {
+            return (
+                <>
+                    <h1>Your feed</h1>
+                    <ul className='followed-photos-index-container'>
+                        {this.state.followedPhotos.map((ele) => <PhotoIndexItem key={ele.id} photo={ele} author={this.props.users[ele.user_id]} />)}
+                    </ul>
+                </>
+            );
+        } else {
+            return '';
+        }
     }
 
     render() {
         if (this.state.fetchComplete) {
-            return (<ul className='photos-index-container'>
-                {Object.values(this.props.photos).map((ele) => <PhotoIndexItem key={ele.id} photo={ele} author={this.props.users[ele.user_id]}/>)}
-            </ul>
+            return (
+                <div className='photos-index-pane'>
+                    <h1>Recent photos</h1>
+                    <div className='all-photos-index-container'>
+                        <ul>
+                            {Object.values(this.props.photos).map((ele) => <PhotoIndexItem key={ele.id} photo={ele} author={this.props.users[ele.user_id]}/>)}
+                        </ul>
+                    </div>
+                    {this.renderFeed()}
+                </div>
             );
         } else {
             return <div></div>;
@@ -35,6 +75,7 @@ class PhotosIndex extends React.Component {
 }
 
 const mapStateToProps = state => ({
+    currentUserId: state.session.id,
     photos: state.entities.photos,
     users: state.entities.users,
     follows: state.entities.follows

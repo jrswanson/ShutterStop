@@ -26,6 +26,20 @@ class User < ApplicationRecord
 
     after_initialize :ensure_token
 
+    has_many :photos
+
+    has_many :follows,
+        foreign_key: :follower_id,
+        class_name: :Follow
+
+    has_many :followees,
+        through: :follows,
+        source: :followee
+
+    has_many :followed_photos,
+        through: :followees,
+        source: :photos
+
     attr_reader :password
     def password=(password)
         @password = password

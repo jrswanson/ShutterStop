@@ -1,10 +1,33 @@
 @import 'colors.scss';
 
 
-.photos-index-container {
-    display: flex;
-    flex-wrap: wrap;
+.photos-index-pane h1 {
     box-sizing: border-box;
+    margin: 0px 30px;
+    padding: 15px 0px;
+    border-bottom: 1px solid rgb(215, 216, 219);
+    font-size: 24px;
+    font-weight: 500;
+    color: #222222;
+}
+
+.all-photos-index-container {
+    display: flex;
+    width: 100vw;
+    overflow-x: scroll;
+}
+
+.all-photos-index-container ul {
+    display: flex;
+    flex-direction: row-reverse;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.followed-photos-index-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     padding: 10px;
 }
 
@@ -60,7 +83,6 @@
 }
 
 .photo-under-title .photo-author {
-    max-width: 70%;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;

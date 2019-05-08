@@ -21,6 +21,11 @@ class PhotoIndexItem extends React.Component {
         this.props.unfollow(followId);
     }
 
+    convertDate(dateStr) {
+        let dateObj = new Date(dateStr);
+        return dateObj.toDateString().slice(4);
+    }
+
     renderFollow() {
         if (!this.props.currentUserId) return '';
 
@@ -28,7 +33,16 @@ class PhotoIndexItem extends React.Component {
             this.props.currentUserId,
             this.props.author.id);
 
-        if (this.props.currentUserId === this.props.author.id) {
+        if (this.props.photo.created_at) {
+            return (
+                <>
+                    <div>·</div>
+                    <div className='image-date'>
+                        {this.convertDate(this.props.photo.created_at)}
+                    </div>
+                </>
+            );
+        } else if (this.props.currentUserId === this.props.author.id) {
             return '';
         } else if (currFollow) {
             return (
