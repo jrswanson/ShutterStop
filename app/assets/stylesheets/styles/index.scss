@@ -50,7 +50,7 @@
 
 .photo-index-bottom {
     background-color: white;
-    height: 60px;
+    height: 80px;
     width: 250px;
     padding: 5px;
     box-sizing: border-box;
@@ -61,6 +61,28 @@
 
 .photo-index-bottom > div {
     margin: 0px 5px;
+}
+
+.like-button {
+    height: 20px;
+    width: 20px;
+    background-image: asset-url('like.png');
+    transition: background-image 0.2s;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.like-button:hover {
+    background-image: asset-url('like-hover.png')
+}
+
+.liked-button {
+    height: 20px;
+    width: 20px;
+    background-image: asset-url('liked.png');
+    transition: background-image 0.2s;
+    background-size: cover;
+    cursor: pointer;
 }
 
 .photo-title {

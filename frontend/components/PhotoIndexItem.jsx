@@ -1,7 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { followsUser } from '../util/follows_selectors';
+import { likesPhoto } from '../util/likes_selectors';
 import { follow, unfollow } from '../actions/follows_actions';
+import { like, unlike } from '../actions/likes_actions';
 
 class PhotoIndexItem extends React.Component {
     constructor(props) {
@@ -9,6 +12,8 @@ class PhotoIndexItem extends React.Component {
 
         this.handleFollow = this.handleFollow.bind(this);
         this.handleUnfollow = this.handleUnfollow.bind(this);
+        this.handleLike = this.handleLike.bind(this);
+        this.handleUnlike = this.handleUnlike.bind(this);
     }
 
     handleFollow(e) {
@@ -19,6 +24,16 @@ class PhotoIndexItem extends React.Component {
     handleUnfollow(e, followId) {
         e.preventDefault();
         this.props.unfollow(followId);
+    }
+
+    handleLike(e) {
+        e.preventDefault();
+        this.props.like(this.props.photo.id);
+    }
+
+    handleUnlike(e, likeId) {
+        e.preventDefault();
+        this.props.unlike(likeId);
     }
 
     convertDate(dateStr) {
@@ -65,13 +80,39 @@ class PhotoIndexItem extends React.Component {
         }
     }
 
+    renderLike() {
+        if (!this.props.currentUserId) {
+            return (
+                <div className='like-button'
+                onClick={() => this.props.history.push('/login')}></div>
+            );
+        }
 
+        let currLike = likesPhoto(this.props.likes,
+            this.props.currentUserId,
+            this.props.photo.id);
+
+        if (currLike) {
+            return (
+                <div className='liked-button'
+                    onClick={e => this.handleUnlike(e, currLike)}></div>
+            );
+        } else {
+            return (
+                <div className='like-button'
+                    onClick={this.handleLike}></div>
+            );
+        }
+    }
 
     render() {
         return (
             <div className='photo-index-item'>
                 <img src={this.props.photo.photoURL} />
                 <div className='photo-index-bottom'>
+                    <div className='photo-over-title'>
+                        {this.renderLike()}
+                    </div>
                     <div className='photo-title'>{this.props.photo.title}</div>
                     <div className='photo-under-title'>
                         <div>by</div>
@@ -89,12 +130,15 @@ class PhotoIndexItem extends React.Component {
 
 const mapStateToProps = state => ({
     currentUserId: state.session.id,
-    follows: state.entities.follows
+    follows: state.entities.follows,
+    likes: state.entities.likes
 });
 
 const mapDispatchToProps = dispatch => ({
     follow: followeeId => dispatch(follow(followeeId)),
-    unfollow: followId => dispatch(unfollow(followId))
+    unfollow: followId => dispatch(unfollow(followId)),
+    like: photoId => dispatch(like(photoId)),
+    unlike: likeId => dispatch(unlike(likeId))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PhotoIndexItem);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PhotoIndexItem));

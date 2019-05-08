@@ -4,6 +4,7 @@ import { fetchUsers } from '../actions/session_actions';
 import { fetchPhotos } from '../actions/photos_actions';
 import { fetchFollows } from '../actions/follows_actions';
 import { fetchFollowedPhotos } from '../util/user_api_util';
+import { fetchLikes } from '../actions/likes_actions';
 import PhotoIndexItem from './PhotoIndexItem';
 
 class PhotosIndex extends React.Component {
@@ -21,6 +22,8 @@ class PhotosIndex extends React.Component {
             return this.props.fetchUsers();
         }).then(() => {
             return this.props.fetchPhotos();
+        }).then(() => {
+            return this.props.fetchLikes();
         }).then(() => {
             return fetchFollowedPhotos();
         }).then(res => {
@@ -84,7 +87,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     fetchPhotos: () => dispatch(fetchPhotos()),
     fetchUsers: () => dispatch(fetchUsers()),
-    fetchFollows: () => dispatch(fetchFollows())
+    fetchFollows: () => dispatch(fetchFollows()),
+    fetchLikes: () => dispatch(fetchLikes())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PhotosIndex);

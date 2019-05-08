@@ -23,9 +23,7 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.processForm(this.state).then(() => {
-            this.props.history.push('/feed');
-        });
+        this.props.processForm(this.state);
     }
 
     handleUsername(e) {
@@ -55,9 +53,7 @@ class SessionForm extends React.Component {
             this.setState({ password: this.state.password + password.shift() },
                 () => window.setTimeout(() => this.demoLogin(username, password), 100));
         } else {
-            this.props.processForm(this.state).then(() => {
-                this.props.history.push('/feed');
-            });
+            this.props.processForm(this.state);
         }
     }
 
