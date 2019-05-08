@@ -7,6 +7,7 @@ import { FirstLoginForm, UpdateUserForm } from './UpdateForm';
 import NewPhotoForm from './NewPhotoForm';
 import PhotoManager from './PhotoManager';
 import PhotoIndex from './PhotoIndex';
+import PhotoShow from './PhotoShow';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 class App extends React.Component {
@@ -30,6 +31,7 @@ class App extends React.Component {
                         <ProtectedRoute path='/photos/manage' component={PhotoManager} />
                         <AuthRoute path='/signup' component={SignupForm} />
                         <AuthRoute path='/login' component={LoginForm} />
+                        <Route path='/photos/:photoId' component={PhotoShow} />
                         <Route path='/feed' component={PhotoIndex} />
                     </main>
                 </div>

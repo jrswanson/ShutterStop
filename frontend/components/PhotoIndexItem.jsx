@@ -10,10 +10,13 @@ class PhotoIndexItem extends React.Component {
     constructor(props) {
         super(props);
 
+        this.state = { loaded: 'photo-item-loading' };
+
         this.handleFollow = this.handleFollow.bind(this);
         this.handleUnfollow = this.handleUnfollow.bind(this);
         this.handleLike = this.handleLike.bind(this);
         this.handleUnlike = this.handleUnlike.bind(this);
+        this.handleLoad = this.handleLoad.bind(this);
     }
 
     handleFollow(e) {
@@ -34,6 +37,10 @@ class PhotoIndexItem extends React.Component {
     handleUnlike(e, likeId) {
         e.preventDefault();
         this.props.unlike(likeId);
+    }
+
+    handleLoad() {
+        this.setState({ loaded: 'loading-complete' });
     }
 
     convertDate(dateStr) {
@@ -119,7 +126,10 @@ class PhotoIndexItem extends React.Component {
     render() {
         return (
             <div className='photo-index-item'>
-                <img src={this.props.photo.photoURL} />
+                <img src={this.props.photo.photoURL}
+                    onClick={() => this.props.history.push(`/photos/${this.props.photo.id}`)}
+                    onLoad={this.handleLoad}/>
+                    <div className={this.state.loaded}></div>
                 <div className='photo-index-bottom'>
                     <div className='photo-over-title'>
                         {this.renderLike()}

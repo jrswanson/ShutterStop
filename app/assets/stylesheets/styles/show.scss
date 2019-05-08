@@ -1,0 +1,155 @@
+@import 'colors.scss';
+
+.show-img-container {
+    position: absolute;
+    top: 63px;
+    height: calc(100vh - 63px);
+    width: 100vw;
+    background: rgb(34, 34, 34);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.show-img-container img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.show-bottom-container {
+    position: absolute;
+    top: 100vh;
+    width: 100vw;
+}
+
+.show-bottom-header {
+    height: 140px;
+    padding: 15px 0px;
+    margin: 0px 30px;
+    border-bottom: 1px solid rgb(215, 216, 219);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.show-over-title {
+    display: flex;
+    align-items: center;
+}
+
+.show-over-title .like-container {
+    margin: 0px 20px 0px 0px;
+    display: flex;
+    align-items: center;
+}
+
+.show-over-title .like-container div {
+    margin: 0px 10px 0px 0px;
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 18px;
+}
+
+.show-over-title .like-button {
+    height: 32px;
+    width: 32px;
+}
+
+.show-over-title .like-button:hover {
+    background-image: asset-url('like-hover.png')
+}
+
+.show-over-title .liked-button {
+    height: 32px;
+    width: 32px;
+}
+
+.show-title {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 40px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.show-under-title {
+    display: flex;
+    flex-direction: row;
+}
+
+.show-under-title div {
+    margin: 0px 4px 0px 0px;
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 32px;
+}
+
+.show-under-title .show-author {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.show-bottom-main {
+    padding: 15px 0px 45px 0px;
+    margin: 0px 30px;
+    display: flex;
+    flex-direction: column;
+    font-weight: 300;
+    font-size: 18px;
+}
+
+.show-bottom-main > div {
+    margin: 15px 0px;
+}
+
+.description-less {
+    line-height: 24px;
+    white-space: pre-wrap;
+}
+
+.description-more {
+    line-height: 24px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.toggle-description {
+    color: $dark-blue;
+    transition: color 0.2s;
+    cursor: pointer;
+    user-select: none;
+}
+
+.toggle-description:hover {
+    color: $light-blue
+}
+
+.show-category {
+    display: flex;
+}
+
+.show-category div {
+    margin-right: 16px;
+    color: rgb(109, 115, 120);
+}
+
+.show-keywords {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.show-keywords div {
+    font-size: 16px;
+    line-height: 20px;
+    box-sizing: border-box;
+    padding: 8px;
+    margin: 0px 4px 8px 0px;
+    border: 1px solid rgb(109, 115, 120);
+    border-radius: 8px;
+}

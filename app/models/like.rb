@@ -11,6 +11,7 @@
 
 class Like < ApplicationRecord
     validates :liker_id, :photo_id, presence: true
+    validates :liker_id, uniqueness: { scope: :photo_id }
 
     belongs_to :photo
 
