@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { followsUser } from '../util/follows_selectors';
-import { likesPhoto } from '../util/likes_selectors';
+import { likesPhoto, numLikes } from '../util/likes_selectors';
 import { follow, unfollow } from '../actions/follows_actions';
 import { like, unlike } from '../actions/likes_actions';
 
@@ -81,10 +81,15 @@ class PhotoIndexItem extends React.Component {
     }
 
     renderLike() {
+        let currNum = numLikes(this.props.likes, this.props.photo.id);
+
         if (!this.props.currentUserId) {
             return (
-                <div className='like-button'
-                onClick={() => this.props.history.push('/login')}></div>
+                <div className='like-container'>
+                    <div className='like-button'
+                    onClick={() => this.props.history.push('/login')}></div>
+                    <div>{currNum}</div>
+                </div>
             );
         }
 
@@ -94,13 +99,19 @@ class PhotoIndexItem extends React.Component {
 
         if (currLike) {
             return (
-                <div className='liked-button'
-                    onClick={e => this.handleUnlike(e, currLike)}></div>
+                <div className='like-container'>
+                    <div className='liked-button'
+                        onClick={e => this.handleUnlike(e, currLike)}></div>
+                    <div>{currNum}</div>
+                </div>
             );
         } else {
             return (
-                <div className='like-button'
-                    onClick={this.handleLike}></div>
+                <div className='like-container'>
+                    <div className='like-button'
+                        onClick={this.handleLike}></div>
+                    <div>{currNum}</div>
+                </div>
             );
         }
     }

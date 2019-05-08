@@ -63,6 +63,24 @@
     margin: 0px 5px;
 }
 
+.photo-over-title {
+    display: flex;
+    align-items: center;
+}
+
+.like-container {
+    margin: 0px 10px 0px 0px;
+    display: flex;
+    align-items: center;
+}
+
+.like-container div {
+    margin: 0px 5px 0px 0px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 12px;
+}
+
 .like-button {
     height: 20px;
     width: 20px;
