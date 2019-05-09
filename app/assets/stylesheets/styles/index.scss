@@ -24,34 +24,14 @@
     padding: 10px;
 }
 
-// .followed-photos-index-container {
-//     width: 100vw;
-//     display: flex;
-//     justify-content: center;
-// }
-
-// .followed-photos-index-container > div {
-//     display: flex;
-//     flex-direction: row;
-//     flex-wrap: wrap;
-//     padding: 10px;
-// }
-
 .followed-photos-index-container {
-    margin: 0px 30px;
-}
-
-.followed-photos-index-container > div {
-    width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
+    margin: 10px 40px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(272px, 1fr));
     grid-template-rows: repeat(auto-fit, 352px);
     justify-items: center;
     align-items: center;
 }
-
 
 .photo-index-item {
     position: relative;

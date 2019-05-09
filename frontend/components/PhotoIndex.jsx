@@ -52,9 +52,7 @@ class PhotosIndex extends React.Component {
                 <>
                     <h1>Your feed</h1>
                     <div className='followed-photos-index-container'>
-                        <div>
-                            {this.state.followedPhotos.map((ele) => <PhotoIndexItem key={ele.id} photo={ele} author={this.props.users[ele.user_id]} />)}
-                        </div>
+                        {this.state.followedPhotos.map((ele) => <PhotoIndexItem key={ele.id} photo={ele} author={this.props.users[ele.user_id]} />)}
                     </div>
                 </>
             );
