@@ -73,27 +73,39 @@ class CommentForm extends React.Component {
         }
     }
 
+    renderCommentForm() {
+        if (this.props.loggedIn) {
+            return (
+                <>
+                    <div className='comment-form'
+                        id={this.state.textbox}>
+                        <textarea
+                            onSelect={() => this.setState({ textbox: 'comment-selected' })}
+                            onBlur={() => this.setState({ textbox: '' })}
+                            placeholder='Add a comment'
+                            onChange={this.handleBody}
+                            value={this.state.body}>
+                        </textarea>
+                        <div className='comment-form-icon'><div></div></div>
+                    </div>
+                    <div className='comment-submit-buttons'>
+                        <div className='comment-cancel'
+                            onClick={() => this.setState({ body: '' })}>Cancel</div>
+                        <div className='comment-submit'
+                            onClick={this.handleSubmit}>Comment</div>
+                    </div>
+                </>
+            );
+        } else {
+            return '';
+        }
+    }
+
     render() {
         return (
             <div className='show-comments-container'>
                 <div>{this.state.comments.length + ' Comments'}</div>
-                <div className='comment-form'
-                    id={this.state.textbox}>
-                    <textarea
-                        onSelect={() => this.setState({ textbox: 'comment-selected' })}
-                        onBlur={() => this.setState({ textbox: '' })}
-                        placeholder='Add a comment'
-                        onChange={this.handleBody}
-                        value={this.state.body}>
-                    </textarea>
-                    <div className='comment-form-icon'><div></div></div>
-                </div>
-                <div className='comment-submit-buttons'>
-                    <div className='comment-cancel'
-                        onClick={() => this.setState({ body: '' })}>Cancel</div>
-                    <div className='comment-submit'
-                        onClick={this.handleSubmit}>Comment</div>
-                </div>
+                {this.renderCommentForm()}
                 <div className='comments-list'>
                     {this.state.comments.map(comment => this.renderComment(comment))}
                 </div>

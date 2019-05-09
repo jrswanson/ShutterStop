@@ -194,7 +194,8 @@ class PhotoShow extends React.Component {
                         <CommentForm
                             photo={this.props.photo} 
                             comments={this.state.photoComments}
-                            users={this.props.users} />
+                            users={this.props.users}
+                            loggedIn={Boolean(this.props.currentUserId)}/>
                     </div>
                 </>
             );
