@@ -25,12 +25,29 @@
 }
 
 .followed-photos-index-container {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.followed-photos-index-container > div {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
     padding: 10px;
 }
+
+// .followed-photos-index-container {
+//     width: 100vw;
+//     padding: 10px;
+//     box-sizing: border-box;
+//     display: grid;
+//     grid-template-columns: repeat(auto-fit, 272px);
+//     grid-template-rows: repeat(auto-fit, 400px);
+//     justify-items: left;
+//     align-items: center;
+// }
+
 
 .photo-index-item {
     position: relative;

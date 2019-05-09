@@ -36,3 +36,10 @@ export const deletePhoto = photoId => (
         url: `/api/photos/${photoId}`
     })
 );
+
+export const fetchPhotoComments = photoId => (
+    $.ajax({
+        method: 'GET',
+        url: `/api/photos/${photoId}/comments`
+    })
+);

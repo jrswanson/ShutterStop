@@ -1,0 +1,110 @@
+@import 'colors.scss';
+
+.show-comments-container {
+    padding-top: 15px;
+    margin: 0px 30px;
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.show-comments-container > div {
+    margin-bottom: 24px;
+}
+
+.comment-form {
+    height: auto;
+    width: 100%;
+    border: 1px solid rgb(109, 115, 120);
+    border-radius: 4px;
+    display: flex;
+}
+
+#comment-selected {
+    border-color: $bright-blue
+}
+
+.comment-form textarea {
+    height: 56px;
+    max-height: 176px;
+    width: calc(100% - 56px);
+    font-size: 18px;
+    line-height: 24px;
+    color: rgb(34, 34, 34);
+    background-color: transparent;
+    border-width: 0px;
+    box-sizing: border-box;
+    padding: 16px;
+    resize: none;
+    outline: none;
+    overflow-y: hidden;
+}
+
+.comment-form-icon {
+    height: 56px;
+    width: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.comment-form-icon div {
+    height: 24px;
+    width: 24px;
+    background-image: asset-url('comment.png');
+    background-size: cover;
+}
+
+.comment-submit-buttons {
+    display: flex;
+    align-self: flex-end;
+    font-size: 16px;
+}
+
+.comment-submit-buttons div {
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.comment-cancel {
+    color: $dark-blue;
+    transition: color 0.125s;
+}
+
+.comment-cancel:hover {
+    color: $light-blue
+}
+
+.comment-submit {
+    background-color: $dark-blue;
+    color: white;
+    transition: background-color 0.125s;
+    border-radius: 100px;
+}
+
+.comment-submit:hover {
+    background-color: $light-blue;
+}
+
+.comments-list-item {
+    margin-bottom: 24px;
+    line-height: 24px;
+}
+
+.comment-item-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comment-date {
+    color: rgb(109, 115, 120);
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 300;
+}
+
+.comment-body {
+    font-weight: 300;
+}

@@ -55,6 +55,17 @@ class Api::PhotosController < ApplicationController
         end
     end
 
+    def comments
+        photo = Photo.find_by(id: params[:photo_id])
+
+        if photo
+            @comments = photo.comments.order(created_at: :desc)
+            render :comments
+        else
+            render json: ['No photo found'], status: 404
+        end
+    end
+
     private
 
     def photo_params

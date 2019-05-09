@@ -1,19 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchPhoto } from '../actions/photos_actions';
-import { fetchUser } from '../actions/session_actions';
+import { fetchUsers } from '../actions/session_actions';
 import { fetchFollows } from '../actions/follows_actions';
 import { fetchLikes } from '../actions/likes_actions';
 import { followsUser } from '../util/follows_selectors';
 import { likesPhoto, numLikes } from '../util/likes_selectors';
 import { follow, unfollow } from '../actions/follows_actions';
 import { like, unlike } from '../actions/likes_actions';
+import CommentForm from './CommentForm';
 
 class PhotoShow extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = { descriptionExpand: 'more' };
+        this.state = {
+            descriptionExpand: 'more',
+            fetchDone: false
+        };
 
         this.handleFollow = this.handleFollow.bind(this);
         this.handleUnfollow = this.handleUnfollow.bind(this);
@@ -30,7 +34,9 @@ class PhotoShow extends React.Component {
         }).then(() => {
             return this.props.fetchPhoto(this.props.match.params.photoId);
         }).then(() => {
-            this.props.fetchUser(this.props.photo.user_id);
+            return this.props.fetchUsers();
+        }).then(() => {
+            this.setState({fetchDone: true});
         });
     }
 
@@ -156,7 +162,7 @@ class PhotoShow extends React.Component {
     }
 
     render() {
-        if (this.props.author) {
+        if (this.state.fetchDone) {
             return (
                 <>
                     <div className='show-img-container' >
@@ -185,6 +191,10 @@ class PhotoShow extends React.Component {
                             </div>
                             {this.renderKeywords()}
                         </div>
+                        <CommentForm
+                            photo={this.props.photo} 
+                            comments={this.state.photoComments}
+                            users={this.props.users} />
                     </div>
                 </>
             );
@@ -201,14 +211,15 @@ const mapStateToProps = (state, ownProps) => {
         author: photo ? state.entities.users[photo.user_id] : null,
         currentUserId: state.session.id,
         follows: state.entities.follows,
-        likes: state.entities.likes
+        likes: state.entities.likes,
+        users: state.entities.users
     });
 };
 
 const mapDispatchToProps = dispatch => ({
     fetchFollows: () => dispatch(fetchFollows()),
     fetchLikes: () => dispatch(fetchLikes()),
-    fetchUser: userId => dispatch(fetchUser(userId)),
+    fetchUsers: () => dispatch(fetchUsers()),
     fetchPhoto: photoId => dispatch(fetchPhoto(photoId)),
     follow: followeeId => dispatch(follow(followeeId)),
     unfollow: followId => dispatch(unfollow(followId)),
