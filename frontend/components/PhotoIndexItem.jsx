@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { followsUser } from '../util/follows_selectors';
 import { likesPhoto, numLikes } from '../util/likes_selectors';
+import { numComments } from '../util/comments_selectors';
 import { follow, unfollow } from '../actions/follows_actions';
 import { like, unlike } from '../actions/likes_actions';
 
@@ -123,6 +124,18 @@ class PhotoIndexItem extends React.Component {
         }
     }
 
+    renderComments() {
+        let currNum = numComments(this.props.comments, this.props.photo.id);
+        return (
+            <div className='comment-container'>
+                <div className='comment-button'
+                    onClick={() => this.props.history.push(`/photos/${this.props.photo.id}`)}>
+                </div>
+                <div>{currNum}</div>
+            </div>
+        );
+    }
+
     render() {
         return (
             <div className='photo-index-item'>
@@ -133,6 +146,7 @@ class PhotoIndexItem extends React.Component {
                 <div className='photo-index-bottom'>
                     <div className='photo-over-title'>
                         {this.renderLike()}
+                        {this.renderComments()}
                     </div>
                     <div className='photo-title'>{this.props.photo.title}</div>
                     <div className='photo-under-title'>
@@ -152,7 +166,8 @@ class PhotoIndexItem extends React.Component {
 const mapStateToProps = state => ({
     currentUserId: state.session.id,
     follows: state.entities.follows,
-    likes: state.entities.likes
+    likes: state.entities.likes,
+    comments: state.entities.comments
 });
 
 const mapDispatchToProps = dispatch => ({
