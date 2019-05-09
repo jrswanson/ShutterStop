@@ -1,7 +1,7 @@
 import React from 'react';
 import Nav from './Nav';
 import { connect } from 'react-redux';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { SignupForm, LoginForm } from './SessionForm';
 import { FirstLoginForm, UpdateUserForm } from './UpdateForm';
 import NewPhotoForm from './NewPhotoForm';
@@ -27,12 +27,14 @@ class App extends React.Component {
                     {this.props.modal === "new photo" ? <NewPhotoForm/> : ''}
                     <Nav />
                     <main>
-                        <ProtectedRoute path='/update' component={UpdateUserForm} />
-                        <ProtectedRoute path='/photos/manage' component={PhotoManager} />
-                        <AuthRoute path='/signup' component={SignupForm} />
-                        <AuthRoute path='/login' component={LoginForm} />
-                        <Route path='/photos/:photoId' component={PhotoShow} />
-                        <Route path='/feed' component={PhotoIndex} />
+                        <Switch>
+                            <ProtectedRoute path='/update' component={UpdateUserForm} />
+                            <ProtectedRoute path='/photos/manage' component={PhotoManager} />
+                            <AuthRoute path='/signup' component={SignupForm} />
+                            <AuthRoute path='/login' component={LoginForm} />
+                            <Route path='/photos/:photoId' component={PhotoShow} />
+                            <Route path='/' component={PhotoIndex} />
+                        </Switch>
                     </main>
                 </div>
             );
