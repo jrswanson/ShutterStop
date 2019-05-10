@@ -9,3 +9,13 @@ ShutterStop is a photography sharing app that enables commmunity interactions be
 * Following and unfollowing populatings an personal feed
 * Like functionality on both the index and show pages for photos
 * Comment section with delete functionality
+
+## Drag n Drop File Upload
+
+![alt text](https://raw.githubusercontent.com/jrswanson/ShutterStop/master/markdown-files/New%201.png "Dragging Animation")
+![alt text](https://raw.githubusercontent.com/jrswanson/ShutterStop/master/markdown-files/New%202.png "New File Form")
+
+## Dynamic Photo Manager
+
+![alt text](https://raw.githubusercontent.com/jrswanson/ShutterStop/master/markdown-files/Update%201.png "No Selection")
+![alt text](https://raw.githubusercontent.com/jrswanson/ShutterStop/master/markdown-files/Update%202.png "Selection Opens Form")
