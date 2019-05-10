@@ -1,5 +1,19 @@
 @import 'colors.scss';
 
+.index-loading-pane {
+    height: calc(90vh - 63px);
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.index-loading-icon {
+    height: 128px;
+    width: 128px;
+    background-image: asset-url('loading.svg');
+    background-size: cover;
+}
 
 .photos-index-pane h1 {
     box-sizing: border-box;
