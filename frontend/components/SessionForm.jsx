@@ -48,10 +48,10 @@ class SessionForm extends React.Component {
     demoLogin(username, password) {
         if (username.length > 0) {
             this.setState({username: this.state.username + username.shift()},
-                () => window.setTimeout(() => this.demoLogin(username, password), 100));
+                () => window.setTimeout(() => this.demoLogin(username, password), 70));
         } else if (password.length > 0) {
             this.setState({ password: this.state.password + password.shift() },
-                () => window.setTimeout(() => this.demoLogin(username, password), 100));
+                () => window.setTimeout(() => this.demoLogin(username, password), 70));
         } else {
             this.props.processForm(this.state);
         }
