@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addComment } from '../actions/comments_actions';
+import { addComment, deleteComment } from '../actions/comments_actions';
 import { fetchPhotoComments } from '../util/photos_api_util';
 
 class CommentForm extends React.Component {
@@ -16,6 +16,7 @@ class CommentForm extends React.Component {
 
         this.handleBody = this.handleBody.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     }
 
     componentDidMount() {
@@ -40,6 +41,17 @@ class CommentForm extends React.Component {
         });
     }
 
+    handleDelete(e, id) {
+        e.preventDefault();
+        if (confirm('Are you sure you want to delete this comment?')) {
+            this.props.deleteComment(id).then(() => {
+                return fetchPhotoComments(this.state.photo_id);
+            }).then(res => {
+                return this.setState({ comments: res });
+            });
+        }
+    }
+
     convertDate(dateStr) {
         let dateObj = new Date(dateStr);
         dateObj = dateObj.toDateString().split(' ');
@@ -49,6 +61,18 @@ class CommentForm extends React.Component {
     renderName(comment) {
         let user = this.props.users[comment.commenter_id];
         return user.first_name + ' ' + user.last_name;
+    }
+
+    renderDelete(comment) {
+        if (this.props.currentUserId === comment.commenter_id) {
+            return (
+                <div className='comment-delete-button'
+                    onClick={e => this.handleDelete(e, comment.id)}>
+                </div>
+            );
+        } else {
+            return '';
+        }
     }
 
     renderComment(comment) {
@@ -63,8 +87,11 @@ class CommentForm extends React.Component {
                             {this.convertDate(comment.created_at)}
                         </div>
                     </div>
-                    <div className='comment-body'>
-                        {comment.body}
+                    <div className='comment-item-bottom'>
+                        <div className='comment-body'>
+                            {comment.body}
+                        </div>
+                        {this.renderDelete(comment)}
                     </div>
                 </div>
             );
@@ -115,7 +142,8 @@ class CommentForm extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-    addComment: comment => dispatch(addComment(comment))
+    addComment: comment => dispatch(addComment(comment)),
+    deleteComment: commentId => dispatch(deleteComment(commentId))
 });
 
 export default connect(null, mapDispatchToProps)(CommentForm);

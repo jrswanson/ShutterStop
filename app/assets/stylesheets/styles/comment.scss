@@ -105,6 +105,24 @@
     font-weight: 300;
 }
 
+.comment-item-bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
 .comment-body {
     font-weight: 300;
+}
+
+.comment-delete-button {
+    height: 16px;
+    width: 16px;
+    background-image: asset-url('delete-black.png');
+    transition: background-image 0.2s;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.comment-delete-button:hover {
+    background-image: asset-url('delete-blue.png');
 }
