@@ -42,7 +42,7 @@ class Nav extends React.Component {
     render() {
         if (this.props.user) {
             return (
-                <header>
+                <nav>
                     <Link className='logo' to='/'>ShutterStop</Link>
                     <div className='right-nav'>
                         <div id='profile-dropdown'>
@@ -55,17 +55,17 @@ class Nav extends React.Component {
                         </div>
                         <div id="new-pic-button" onClick={this.handleNewPhoto}></div>
                     </div>
-                </header>
+                </nav>
             );
         } else {
             return (
-                <header>
+                <nav>
                     <Link className='logo' to='/'>ShutterStop</Link>
                     <div className='right-nav'>
                         <Link id='login-link' to='/login'>Log in</Link>
                         <Link id='signup-link' to='/signup'>Sign up</Link>
                     </div>
-                </header>
+                </nav>
             );
         }
     }

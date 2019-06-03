@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import { SignupForm, LoginForm } from './SessionForm';
 import { FirstLoginForm, UpdateUserForm } from './UpdateForm';
+import Splash from './Splash';
 import NewPhotoForm from './NewPhotoForm';
 import PhotoManager from './PhotoManager';
 import PhotoIndex from './PhotoIndex';
@@ -32,8 +33,9 @@ class App extends React.Component {
                             <ProtectedRoute path='/photos/manage' component={PhotoManager} />
                             <AuthRoute path='/signup' component={SignupForm} />
                             <AuthRoute path='/login' component={LoginForm} />
+                            <AuthRoute exact path='/' component={Splash} />
                             <Route path='/photos/:photoId' component={PhotoShow} />
-                            <Route path='/' component={PhotoIndex} />
+                            <Route path='/discover' component={PhotoIndex} />
                         </Switch>
                     </main>
                 </div>

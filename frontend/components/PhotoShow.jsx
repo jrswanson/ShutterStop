@@ -169,7 +169,7 @@ class PhotoShow extends React.Component {
                         <img src={this.props.photo.photoURL} />
                     </div>
                     <div className='show-bottom-container'>
-                        <div className='show-bottom-header'>
+                        <div className='show-bottom-nav'>
                             <div className='show-over-title'>
                                 {this.renderLike()}
                             </div>
