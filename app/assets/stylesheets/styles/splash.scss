@@ -1,6 +1,6 @@
 @import 'colors.scss';
 
-#splash {
+.splash {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -10,18 +10,7 @@
     background-color: rgb(25, 214, 192);
 }
 
-#wave {
-    position: absolute;
-    bottom: 0;
-    width: 100vw;
-}
-
-#splash-img {
-    width: 100px;
-    height: 100px;
-}
-
-#splash header {
+.splash-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -32,11 +21,11 @@
     user-select: none;
 }
 
-#splash .logo {
+.splash .logo {
     color: $dark-gray;
 }
 
-#splash .logo:hover {
+.splash .logo:hover {
     color: white;
 }
 
@@ -60,4 +49,50 @@
 #signup-link-splash:hover {
     color: $medium-gray;
     border-color: $medium-gray;
+}
+
+.wave {
+    position: absolute;
+    bottom: 25px;
+    z-index: 27;
+    width: 100vw;
+}
+
+.splash-white {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 28;
+    height: 26px;
+    background-color: white;
+}
+
+.splash-main {
+    position: relative;
+    z-index: 30;
+    height: calc(100vh - 63px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.splash-img {
+    max-height: calc(100vh - 150px);
+    max-width: 50%;
+    padding-left: 75px;
+}
+
+.splash-footer {
+    height: 40px;
+    width: 100%;
+    background-color: white;
+    border-top: 1px solid $off-white;
+    display: flex;
+    align-items: center;
+}
+
+.splash-footer ul {
+    display: flex;
+    justify-content: space-between;
 }
