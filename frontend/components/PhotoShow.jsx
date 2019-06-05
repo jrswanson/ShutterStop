@@ -155,7 +155,7 @@ class PhotoShow extends React.Component {
         if (this.props.photo.keywords) {
             return (
                 <div className='show-keywords'>
-                    {this.props.photo.keywords.split(' ').map(keyword => <div className='keyword-item'>{keyword}</div>)}
+                    {this.props.photo.keywords.split(' ').map((keyword, index) => <div key={index} className='keyword-item'>{keyword}</div>)}
                 </div>
             );
         }
@@ -169,7 +169,7 @@ class PhotoShow extends React.Component {
                         <img src={this.props.photo.photoURL} />
                     </div>
                     <div className='show-bottom-container'>
-                        <div className='show-bottom-nav'>
+                        <div className='show-bottom-header'>
                             <div className='show-over-title'>
                                 {this.renderLike()}
                             </div>

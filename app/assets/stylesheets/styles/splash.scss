@@ -53,7 +53,7 @@
 
 .wave {
     position: absolute;
-    bottom: 25px;
+    bottom: 5px;
     z-index: 27;
     width: 100vw;
 }
@@ -64,7 +64,7 @@
     right: 0;
     left: 0;
     z-index: 28;
-    height: 26px;
+    height: 6px;
     background-color: white;
 }
 
@@ -75,6 +75,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: $dark-gray;
 }
 
 .splash-img {
@@ -82,6 +83,71 @@
     max-width: 50%;
     padding-left: 75px;
 }
+
+.splash-main-right {
+    margin: 0px 75px;
+}
+
+.splash-main-right h3 {
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.splash-main-right h1 {
+    font-size: 48px;
+    line-height: 52px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.splash-main-right p {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 300;
+}
+
+.splash-main-right a {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 500;
+    padding: 16px 64px;
+    margin-top: 32px;
+    background-color: white;
+    border-radius: 100px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 6px, rgba(0, 0, 0, 0.08) 0px 0px 2px;
+    color: $dark-gray;
+    transition: color 0.3s;
+}
+
+.splash-main-right a:hover {
+    color: $dark-blue;
+}
+
+@media screen and (max-width: 1070px) {
+  .splash-main-right h3 {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .splash-main-right h1 {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  .splash-main-right p {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .splash-main-right a {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+}
+
 
 .splash-footer {
     height: 40px;
@@ -94,5 +160,22 @@
 
 .splash-footer ul {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.splash-footer a {
+    text-decoration: none;
+    font-weight: 500;
+    color: $light-gray;
+    transition: color 0.125s;
+}
+
+.splash-footer a:hover {
+    color: $dark-blue;
+}
+
+.splash-footer span {
+    font-weight: 300;
+    font-family: "Helvetica Neue", Arial, sans-serif;
 }

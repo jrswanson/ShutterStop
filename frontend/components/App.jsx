@@ -31,11 +31,11 @@ class App extends React.Component {
                         <Switch>
                             <ProtectedRoute path='/update' component={UpdateUserForm} />
                             <ProtectedRoute path='/photos/manage' component={PhotoManager} />
+                            <ProtectedRoute path='/photos/:photoId' component={PhotoShow} />
+                            <ProtectedRoute path='/discover' component={PhotoIndex} />
                             <AuthRoute path='/signup' component={SignupForm} />
                             <AuthRoute path='/login' component={LoginForm} />
                             <AuthRoute exact path='/' component={Splash} />
-                            <Route path='/photos/:photoId' component={PhotoShow} />
-                            <Route path='/discover' component={PhotoIndex} />
                         </Switch>
                     </main>
                 </div>
