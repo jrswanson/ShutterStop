@@ -10,10 +10,10 @@ export default props => (
                 <Link id='signup-link-splash' to='/signup'>Sign up</Link>
             </div>
         </div>
-        <img src="./images/wave.svg" alt="" className='wave'/>
+        <img src="./assets/wave.svg" alt="" className='wave'/>
         <div className='splash-white'></div>
         <div className='splash-main'>
-            <img src="./images/splash.jpg" alt="" className='splash-img'/>
+            <img src="./assets/splash.jpg" alt="" className='splash-img'/>
             <div className='splash-main-right'>
                 <h3>The global network for photographers</h3>
                 <h1>Discover and share the world’s best photos</h1>
