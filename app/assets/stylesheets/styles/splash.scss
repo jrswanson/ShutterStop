@@ -78,6 +78,26 @@
     color: $dark-gray;
 }
 
+.splash-main-loading {
+    position: relative;
+    z-index: 30;
+    height: calc(100vh - 63px);
+    background-color: rgb(25, 214, 192);
+    opacity: 1;
+    animation: fade 1.5s linear infinite;
+
+    @keyframes fade {
+        0% { opacity: 0 }
+        40% { opacity: 1 }
+        60% { opacity: 1 }
+        100% { opacity: 0 }
+    }
+}
+
+.splash-main-loading > * {
+    display: none;
+}
+
 .splash-img {
     max-height: calc(100vh - 150px);
     max-width: 50%;
