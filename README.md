@@ -25,7 +25,7 @@ onDrop={this.handleDrop}></div>
         <div className='select-photo'>
             <label className='new-pic-button'>
                 Select Photo
-                                <input type='file'
+                <input type='file'
                     onChange={this.handleFile} />
             </label>
             <p>Or drag & drop a photo anywhere on this page</p>
