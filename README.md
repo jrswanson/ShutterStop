@@ -15,9 +15,9 @@ ShutterStop is a photography sharing app that enables commmunity interactions be
 ![alt text](https://raw.githubusercontent.com/jrswanson/ShutterStop/master/markdown-files/New%201.png "Dragging Animation")
 ```javascript
 <div className={this.state.drag}
-onDragOver={e => e.preventDefault()}
-onDragLeave={this.handleDragLeave}
-onDrop={this.handleDrop}></div>
+    onDragOver={e => e.preventDefault()}
+    onDragLeave={this.handleDragLeave}
+    onDrop={this.handleDrop}></div>
 <div className='modal-background'
     onDragEnter={this.handleDragEnter}
     onClick={() => this.props.clearModal()}>
