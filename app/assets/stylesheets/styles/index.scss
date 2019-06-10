@@ -26,16 +26,44 @@
 }
 
 .all-photos-index-container {
-    display: flex;
+    position: relative;
     width: 100vw;
+}
+
+#all-photos-carousel {
+    width: 100%;
+    display: flex;
     overflow-x: scroll;
 }
 
-.all-photos-index-container ul {
+#all-photos-carousel ul {
     display: flex;
     flex-direction: row-reverse;
     box-sizing: border-box;
-    padding: 10px;
+    padding: 10px 80px;
+}
+
+.scroll-button {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 160px;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 6px, rgba(0, 0, 0, 0.08) 0px 0px 2px;
+    border-radius: 100%;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#scroll-left {
+    left: 20px;
+}
+
+#scroll-right {
+    right: 20px;
 }
 
 .followed-photos-index-container {

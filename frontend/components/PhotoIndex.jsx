@@ -16,6 +16,9 @@ class PhotosIndex extends React.Component {
             fetchComplete: false,
             followedPhotos: []
         };
+
+        this.handleLeft = this.handleLeft.bind(this);
+        this.handleRight = this.handleRight.bind(this);
     }
 
     componentDidMount() {
@@ -46,6 +49,47 @@ class PhotosIndex extends React.Component {
         }
     }
 
+    handleLeft() {
+        const carousel = document.getElementById('all-photos-carousel');
+        carousel.scrollBy({
+            left: -252,
+            behavior: 'smooth'
+        });
+    }
+
+    handleRight() {
+        const carousel = document.getElementById('all-photos-carousel');
+        carousel.scrollBy({
+            left: 252,
+            behavior: 'smooth'
+        });
+    }
+
+    renderRecent() {
+        return (
+            <>
+                <h1>Recent photos</h1>
+                <div className='all-photos-index-container'>
+                    <div id='all-photos-carousel'>
+                        <ul>
+                            {Object.values(this.props.photos).map((ele) => <PhotoIndexItem key={ele.id} photo={ele} author={this.props.users[ele.user_id]} />)}
+                        </ul>
+                    </div>
+                    <div className='scroll-button'
+                        id='scroll-left'
+                        onClick={this.handleLeft}>
+                        <i className="fas fa-chevron-left"></i>
+                    </div>
+                    <div className='scroll-button'
+                        id='scroll-right'
+                        onClick={this.handleRight}>
+                        <i className="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+            </>
+        );
+    }
+
     renderFeed() {
         if (this.state.followedPhotos.length > 0) {
             return (
@@ -65,12 +109,7 @@ class PhotosIndex extends React.Component {
         if (this.state.fetchComplete) {
             return (
                 <div className='photos-index-pane'>
-                    <h1>Recent photos</h1>
-                    <div className='all-photos-index-container'>
-                        <ul>
-                            {Object.values(this.props.photos).map((ele) => <PhotoIndexItem key={ele.id} photo={ele} author={this.props.users[ele.user_id]}/>)}
-                        </ul>
-                    </div>
+                    {this.renderRecent()}
                     {this.renderFeed()}
                 </div>
             );
