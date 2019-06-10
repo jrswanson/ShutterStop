@@ -7,7 +7,6 @@ import { fetchFollowedPhotos } from '../util/user_api_util';
 import { fetchLikes } from '../actions/likes_actions';
 import { fetchComments } from '../actions/comments_actions';
 import PhotoIndexItem from './PhotoIndexItem';
-import { debug } from 'util';
 
 class PhotosIndex extends React.Component {
     constructor(props) {
