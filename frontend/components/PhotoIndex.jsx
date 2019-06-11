@@ -51,16 +51,20 @@ class PhotosIndex extends React.Component {
 
     handleLeft() {
         const carousel = document.getElementById('all-photos-carousel');
-        carousel.scrollBy({
-            left: -252,
+        let pos = carousel.scrollLeft - 544;
+        pos = pos <= 80 ? 0 : pos;
+        carousel.scrollTo({
+            left: pos,
             behavior: 'smooth'
         });
     }
 
     handleRight() {
         const carousel = document.getElementById('all-photos-carousel');
-        carousel.scrollBy({
-            left: 252,
+        let pos = carousel.scrollLeft;
+        pos = pos === 0 ? 624 : pos + 544;
+        carousel.scrollTo({
+            left: pos,
             behavior: 'smooth'
         });
     }
