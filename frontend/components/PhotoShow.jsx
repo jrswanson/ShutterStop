@@ -166,7 +166,12 @@ class PhotoShow extends React.Component {
             return (
                 <>
                     <div className='show-img-container' >
+                        <div className='show-close-button'
+                            onClick={() => window.history.back()}>
+                            <div>✕</div>
+                        </div>
                         <img src={this.props.photo.photoURL} />
+                        <div></div>
                     </div>
                     <div className='show-bottom-container'>
                         <div className='show-bottom-header'>

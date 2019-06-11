@@ -7,15 +7,37 @@
     width: 100vw;
     background: rgb(34, 34, 34);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     padding: 20px;
     box-sizing: border-box;
 }
 
+.show-img-container > div {
+    align-self: start;
+    min-height: 40px;
+    min-width: 40px;
+}
+
+.show-close-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    font-size: 26px;
+    font-weight: 300;
+    color: $off-white;
+    transition: background-color 0.2s ease 0s;
+    cursor: pointer;
+}
+
+.show-close-button:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
 .show-img-container img {
     max-height: 100%;
-    max-width: 100%;
+    max-width: calc(100% - 100px);
 }
 
 .show-bottom-container {
