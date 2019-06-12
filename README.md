@@ -6,7 +6,7 @@ ShutterStop is a photography sharing app that enables commmunity interactions be
 ## Features
 * User authentication using BCrypt encryption on the backend
 * Users can add photos, update photo information and delete photos
-* Following and unfollowing populatings an personal feed
+* Following and unfollowing populates a personal feed
 * Like functionality on both the index and show pages for photos
 * Comment section with delete functionality
 
