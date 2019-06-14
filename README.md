@@ -4,7 +4,7 @@ ShutterStop is a photography sharing app that enables commmunity interactions be
 [Live Demo](https://shutter-stop.herokuapp.com/)
 
 ## Features
-* User authentication using BCrypt encryption on the backend
+* User authentication using BCrypt encryption
 * Users can add photos, update photo information and delete photos
 * Following and unfollowing populates a personal feed
 * Like functionality on both the index and show pages for photos
